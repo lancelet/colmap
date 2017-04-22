@@ -37,7 +37,7 @@ make
 
 # Create a macOS application bundle
 echo "Creating bundle directory"
-app_name="COLMAP-${version}.app"
+app_name="COLMAP.app"
 mkdir -p "${BUILD_DIR}/${app_name}/Contents/MacOS"
 echo "Copying binary to bundle directory"
 cp "${BUILD_DIR}/colmap" "${BUILD_DIR}/${app_name}/Contents/MacOS/COLMAP"
