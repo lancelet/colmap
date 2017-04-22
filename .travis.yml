@@ -1,5 +1,6 @@
 language: c++
 
+# Additional build platforms can be added to this matrix.
 matrix:
   include:
     - os: osx
