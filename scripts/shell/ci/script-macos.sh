@@ -12,7 +12,7 @@ echo "SCRIPT_DIR=\"${SCRIPT_DIR}\""
 echo "PROJECT_DIR=\"${PROJECT_DIR}\""
 
 # Configure version
-version="$(./version.sh)"
+version="$(${SCRIPT_DIR}/version.sh)"
 echo "version=\"${version}\""
 
 # Setup the Qt path for cmake in a LocalConfig file
