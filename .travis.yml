@@ -5,16 +5,16 @@ osx_image: xcode7.3
 before_install:
   - brew tap homebrew/science
   - brew update
-  - brew outdated cmake        || brew upgrade cmake
-  - brew outdated boost        || brew upgrade boost
-  - brew outdated eigen        || brew upgrade eigen
-  - brew outdated freeimage    || brew upgrade freeimage
-  - brew outdated glog         || brew upgrade glog
-  - brew outdated gflags       || brew upgrade gflags
-  - brew outdated suite-sparse || brew upgrade suite-sparse
-  - brew outdated ceres-solver || brew upgrade ceres-solver
-  - brew outdated qt5          || brew upgrade qt5
-  - brew outdated glew         || brew upgrade glew
+  - brew outdated cmake || brew upgrade cmake
+  - brew outdated boost || brew upgrade boost
+  - brew install eigen
+  - brew install freeimage
+  - brew install glog
+  - brew install gflags
+  - brew install suite-sparse
+  - brew install ceres-solver
+  - brew install qt5
+  - brew install glew
 install:
   - echo 'set(Qt5_CMAKE_DIR "/usr/local/opt/qt5/lib/cmake")' >  LocalConfig.cmake
   - echo 'set(Qt5Core_DIR ${Qt5_CMAKE_DIR}/Qt5Core)'         >> LocalConfig.cmake
