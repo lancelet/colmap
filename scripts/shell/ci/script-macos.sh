@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# This script is invoked by Travis during the install step on macOS.
+# This script is invoked by Travis during the script step on macOS.
 
 # "Safe" bash
 set -euf -o pipefail
