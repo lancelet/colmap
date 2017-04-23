@@ -24,8 +24,16 @@ In brief, to add a new configuration:
 
 ## Release Versioning
 
-TODO: 
-     
+When tracking down end-user problems, it is very useful to know exactly which
+binary artifact the user was running. For this purpose, the release version
+should include enough information to establish exactly which binary was being
+run. For now, the release information includes:
+  - Nominal version (eg. `2.1`)
+  - Build timestamp
+  - Shortened git commit hash
+
+This can be expanded as required.
+
 ## Initial Travis setup
 
 Before Travis will build anything, it is necessary to configure Travis itself.
@@ -40,7 +48,7 @@ must have its own build configured. (AFAICT, it is not possible to share this
 initial Travis setup among forks, although the configuration is shared since it
 lives in the repository.)
 
-## GitHub Releases
+## Deploying GitHub Releases
 
 Travis can upload artifacts to GitHub. Documentation for
 this [release capability][travis-release] is available from Travis. Once this
