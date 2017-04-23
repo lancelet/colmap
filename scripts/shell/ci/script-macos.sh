@@ -33,7 +33,10 @@ mkdir -p "${BUILD_DIR}" && pushd "${BUILD_DIR}"
 
 # Compilation
 cmake "${PROJECT_DIR}"
-make
+make -j5
+
+# Run test suite
+make test
 
 # Create a macOS application bundle
 echo "Creating bundle directory"
