@@ -98,6 +98,6 @@ hdiutil create                            \
         -srcfolder "${BUILD_DIR}/package" \
         -ov                               \
         -format UDZO                      \
-        COLMAP.dmg
+        "${PROJECT_DIR}/COLMAP.dmg"
 
 popd
