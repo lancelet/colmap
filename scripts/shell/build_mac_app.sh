@@ -19,13 +19,13 @@
 BIN_PATH="../../install-release/bin"
 
 echo "Creating bundle directory"
-mkdir -p "$BIN_PATH/COLMAP.app/Contents/MacOS"
+mkdir -p "$BIN_PATH/package/COLMAP.app/Contents/MacOS"
 
 echo "Copying binary"
-cp "$BIN_PATH/colmap" "$BIN_PATH/COLMAP.app/Contents/MacOS/COLMAP"
+cp "$BIN_PATH/colmap" "$BIN_PATH/package/COLMAP.app/Contents/MacOS/COLMAP"
 
 echo "Writing Info.plist"
-cat <<EOM >"$BIN_PATH/COLMAP.app/Contents/Info.plist"
+cat <<EOM >"$BIN_PATH/package/COLMAP.app/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -48,4 +48,12 @@ install_name_tool -change @rpath/libtbb.dylib /usr/local/lib/libtbb.dylib $BIN_P
 install_name_tool -change @rpath/libtbbmalloc.dylib /usr/local/lib/libtbbmalloc.dylib $BIN_PATH/COLMAP.app/Contents/MacOS/COLMAP
 
 echo "Linking dynamic libraries"
-/usr/local/opt/qt5/bin/macdeployqt "$BIN_PATH/COLMAP.app"
+/usr/local/opt/qt5/bin/macdeployqt "${BIN_PATH}/package/COLMAP.app"
+
+echo "Creating DMG file"
+hdiutil create                           \
+        -volname COLMAP                  \
+        -srcfolder "${BIN_PATH}/package" \
+        -ov                              \
+        -format UDZO                     \
+        "${PROJECT_DIR}/COLMAP.dmg"
