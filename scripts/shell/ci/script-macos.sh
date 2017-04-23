@@ -92,9 +92,9 @@ EOF
 echo "Qt linking dynamic libraries"
 /usr/local/opt/qt5/bin/macdeployqt "${BUILD_DIR}/package/COLMAP.app"
 echo "Copying license, changelog and version"
-cp COPYING.txt   "${BUILD_DIR}/package/COPYING.txt"
-cp CHANGELOG.txt "${BUILD_DIR}/package/CHANGELOG.txt"
-cp VERSION.txt   "${BUILD_DIR}/package/VERSION.txt"
+cp "${PROJECT_DIR}/COPYING.txt"   "${BUILD_DIR}/package/COPYING.txt"
+cp "${PROJECT_DIR}/CHANGELOG.txt" "${BUILD_DIR}/package/CHANGELOG.txt"
+cp "${PROJECT_DIR}/VERSION.txt"   "${BUILD_DIR}/package/VERSION.txt"
 
 # Create DMG file
 hdiutil create                            \
