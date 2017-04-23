@@ -41,11 +41,11 @@ make test
 # Create a macOS application bundle
 echo "Creating bundle directory"
 app_name="COLMAP.app"
-mkdir -p "${BUILD_DIR}/${app_name}/Contents/MacOS"
+mkdir -p "${BUILD_DIR}/package/${app_name}/Contents/MacOS"
 echo "Copying binary to bundle directory"
-cp "${BUILD_DIR}/src/exe/colmap" "${BUILD_DIR}/${app_name}/Contents/MacOS/COLMAP"
+cp "${BUILD_DIR}/src/exe/colmap" "${BUILD_DIR}/package/${app_name}/Contents/MacOS/COLMAP"
 echo "Writing Info.plist"
-cat <<EOF > "${BUILD_DIR}/${app_name}/Contents/Info.plist"
+cat <<EOF > "${BUILD_DIR}/package/${app_name}/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -90,6 +90,14 @@ cat <<EOF > "${BUILD_DIR}/${app_name}/Contents/Info.plist"
 </plist>
 EOF
 echo "Qt linking dynamic libraries"
-/usr/local/opt/qt5/bin/macdeployqt "${BUILD_DIR}/COLMAP.app"
+/usr/local/opt/qt5/bin/macdeployqt "${BUILD_DIR}/package/COLMAP.app"
+
+# Create DMG file
+hdiutil create                            \
+        -volname COLMAP                   \
+        -srcfolder "${BUILD_DIR}/package" \
+        -ov                               \
+        -format UDZO                      \
+        COLMAP.dmg
 
 popd
