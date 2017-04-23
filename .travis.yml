@@ -7,6 +7,7 @@ matrix:
     before_install: scripts/shell/ci/before-install-macos.sh
     script: scripts/shell/ci/script-macos.sh
 deploy:
+  skip_cleanup: true
   provider: releases
   api_key:
     secure: O8WMfkMhCNQeN9YxsB7E7MNOK+/Bpigd0vemmj7hvprYdmzTCSRm8BdThRkHLZuqVmlk8O4ryAWVTaW3yGN9OuGqR8T470osBxwMeXcFFgbeDmp/gWmclc4icLuu3yy7ls43RvVFVOPl0quN0RoiTUzqpYZkBezBJmrXTQ0ha9R//I5Rw/7iYmtSqf0K5F3ij+liw5gDw4ignxMlV3XuShXfIL2UuaIyoYCjz9+SI6TnGVdxb4Nrc7tcibK+gmcSDNs3V0bO55aWJJc5E0dXI/9SPRkpgSxymyp2XpQIgws7vAk5xWWgxxJG/3hGiUotst5z6bHsJ9xws25bDR9jFN6gQLuLxzmIx2V3eezJINJ7CyuL/JChoirimgC1tx5iLbwu13EwSFehNTtZ6ZOu9S4AqmkjLM/ktCjssTIPsW9X2ihoQX19BHEPR7JKTeJXgLs5398niAUGAtKKpu7QAPQ2T5Xbb89q6LhchO8I+tFApUKzgHc//YBJFdKq4mkJKBKw+3YRIbL1FU1g93OReFs/NxLcK99KCjPxRxgXaQrMO+ddA7pETFS0jZW5kObD9cFePRZB/AtzJlOJIdPLw9WeiFaQBkssrUpvVhupsjroegd72Hs5me1oT4qTLnbHxicQ6GIWHoCy2WEGZCZkwvhSRIVmYBzoMZLwznccpMo=
