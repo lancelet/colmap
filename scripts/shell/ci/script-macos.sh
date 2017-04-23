@@ -40,7 +40,7 @@ echo "Creating bundle directory"
 app_name="COLMAP.app"
 mkdir -p "${BUILD_DIR}/${app_name}/Contents/MacOS"
 echo "Copying binary to bundle directory"
-cp "${BUILD_DIR}/colmap" "${BUILD_DIR}/${app_name}/Contents/MacOS/COLMAP"
+cp "${BUILD_DIR}/src/exe/colmap" "${BUILD_DIR}/${app_name}/Contents/MacOS/COLMAP"
 echo "Writing Info.plist"
 cat <<EOF > "${BUILD_DIR}/${app_name}/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
